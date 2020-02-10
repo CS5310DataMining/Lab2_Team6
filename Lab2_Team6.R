@@ -93,9 +93,38 @@ sum_table <- summary(used_cars)
 write.csv(sum_table, file = "Used_Cars_Summary_Table.csv", na = " ")
 
 #--------------------------------------------------
-# Visualizing data with boxplot
+# Visualizing data with boxplot, histograms, and scatterplot
 #--------------------------------------------------
 
-# Boxplot of Year for Used Cars
-boxplot(used_cars$year, main = "Boxplot of Year for Used Cars", ylab = "Year")
+# Creating boxplot and histogram visualization for used car prices
+boxplot(used_cars$price, main = "Boxplot of Used Car Prices",
+        ylab = "Price ($)")
 
+hist(used_cars$price, main = "Histogram of Used Car Prices",
+     xlab = "Prices ($)")
+
+# With the boxplot and histogram visualization we are able to see there a skewness in the 
+# used car prices. The majority of the prices,frequency, are between 12,000 and 16,000 dollars which is 
+# why we have a difference in the mean and median. Also the boxplot shows there are a couple of outliers 
+# within the dataset as both extreme.
+
+# Creating boxplot and histogram visualization for used car mileage
+boxplot(used_cars$mileage, main = "Boxplot of Used Car Mileage",
+        ylab = "Odometer (mi.)")
+
+hist(used_cars$mileage, main = "Histogram of Used Car Mileage",
+     xlab = "Odometer (mi)")
+
+# WIth the boxplot and histogram visualization we are ble to see there is a positive skewness with the 
+# used car mileage. The majority mileaged in the used car is below 50,000 miles. The boxplot shows there are 
+# several outliers upper extreme.
+
+# Creating a scatterplot visualization for the relationship between used car prices and mielage. 
+plot (x= used_cars$mileage, y= used_cars$price,
+      main = "Scatterplot of Price vs. Mileage",
+      xlab = "Used Car Odometer (mi.)",
+      ylab = "Used Car Price ($)")
+
+# We are able to see a strong, negative correlation between the price and mileag of a used car.
+# The lower the mileage the used car has the price will increase. The higher the mileage the used car has
+# the lower the price will be. 
